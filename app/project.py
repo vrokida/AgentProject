@@ -1,4 +1,5 @@
 from app.agent import Agent
+from app.agent_mae_project_handle import AgentMaeProjectHandle
 
 III = 'III'
 II = 'II'
@@ -24,6 +25,11 @@ class Project:
             return III
 
     def get_agent(self):
+
+        agentMae = AgentMaeProjectHandle()
+
+        agentMae.handle(None, self)
+
         if self.get_category() == III:
             agent = Agent('MAE')
         elif self.get_category() == II and self.is_intersect:
