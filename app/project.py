@@ -1,6 +1,4 @@
-from app.agent import Agent
 from app.agent_mae_project_handle import AgentMaeProjectHandle
-from app.agent_project_handler import AgentProjectHandle
 from app.agent_dp_project_handle import AgentDPProjectHandle
 from app.agent_gad_project_handle import AgentGadProjectHandle
 
@@ -28,38 +26,10 @@ class Project:
             return III
 
     def get_agent(self):
-        agentGAD = AgentGadProjectHandle()
-        agentDP = AgentDPProjectHandle(agentGAD)
-        agentMAE = AgentMaeProjectHandle(agentDP)
-        agent = agentMAE.handle(self)
+        agent_gad = AgentGadProjectHandle()
+        agent_dp = AgentDPProjectHandle(agent_gad)
+        agent_mae = AgentMaeProjectHandle(agent_dp)
+        agent = agent_mae.handle(self)
 
         return agent
 
-
-     #   agentMae.handle()
-"""
-        if self.get_category() == III:
-            agent = Agent('MAE')
-        elif self.get_category() == II and self.is_intersect:
-            agent = Agent('MAE')
-        elif self.get_category() == I and not self.is_intersect:
-            agent = Agent('DP')
-        elif self.get_category() == I and self.is_intersect:
-            agent = Agent('MAE')
-        else:
-            agent = Agent('GAD')
-       """
-
-
-
-
-class Pepa:
-     if __name__ == '__main__':
-
-        agentGAD = AgentGadProjectHandle()
-        agentDP = AgentDPProjectHandle(agentGAD)
-        agentMAE = AgentMaeProjectHandle(agentDP)
-
-        project2 = Project('la granja', 'mineria', 20, True)
-        a = agentMAE.handle(project2)
-        print(a.name)
