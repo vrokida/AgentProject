@@ -25,23 +25,23 @@ class ProjectTest(unittest.TestCase):
         agent = Agent('MAE')
         self.assertEqual(project.get_agent(), agent)
 
-    def test_give_project_category_I_return_agent_DP(self):
+    def test_give_project_category_I_return_agent_GAD(self):
         project = Project('banana', 'cultivo')
-        agent = Agent('DP')
+        agent = Agent('GAD')
         self.assertEqual(project.get_agent(), agent)
 
-    def test_give_project_category_II_return_agent_GAD(self):
+    def test_give_project_category_II_return_agent_DP(self):
         project = Project('banana', 'mineria')
-        agent = Agent('GAD')
+        agent = Agent('DP')
         self.assertEqual(project.get_agent(), agent)
 
     def test_give_project_category_I_and_intersected_return_agent_MAE(self):
         project = Project('la granja', 'cultivo', 10, True)
-        agent = Agent('MAE')
+        agent = Agent('DP')
         self.assertEqual(project.get_agent(), agent)
 
     def test_give_project_category_II_and_intersected_return_agent_MAE(self):
-        project = Project('la granja', 'mineria', 20, True)
+        project = Project('la granja', 'exploitation', 20, True)
         agent = Agent('MAE')
         self.assertEqual(project.get_agent(), agent)
 
